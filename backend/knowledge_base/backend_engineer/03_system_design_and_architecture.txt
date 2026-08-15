@@ -1,0 +1,13 @@
+System Design and Backend Architecture
+
+Separation of concerns is a foundational principle: a well-structured backend separates the API/presentation layer (handling HTTP requests/responses), the business logic layer (orchestrating the actual work of the application), and the data access layer (talking to the database or external stores), so that each layer can change independently and be tested in isolation.
+
+Session management in a multi-step interactive system, such as a candidate interview flow, requires tracking state across multiple requests: typically a session record is created when a candidate starts, holds the current stage/question index, and is updated as the candidate progresses, until it is marked complete when the flow finishes.
+
+Configuration should be externalized from code using environment variables (e.g., database URLs, API keys, feature flags), following the twelve-factor app methodology, so that the same codebase can run in different environments (local, staging, production) without modification.
+
+Error handling should be layered: low-level exceptions (e.g., a database connection failure) should be caught close to their source and translated into meaningful, structured errors at the API boundary, rather than leaking stack traces or raw exception messages to clients. Centralized exception handlers (middleware) keep this consistent across an entire application.
+
+Asynchronous processing (background tasks, message queues) is useful when a request triggers work that is too slow to complete within a single HTTP request-response cycle, such as generating multiple AI-driven interview questions; the API can accept the request, kick off the work, and let the client poll or receive a callback/websocket update once it's ready, keeping the system responsive.
+
+Scalability considerations include statelessness of API servers (so any instance can handle any request, enabling horizontal scaling behind a load balancer), caching frequently accessed data, and choosing between synchronous request/response and event-driven patterns depending on the latency and throughput requirements of the feature.

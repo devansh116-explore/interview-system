@@ -1,0 +1,11 @@
+Natural Language Processing and Large Language Models
+
+Text must be converted into numerical form before it can be processed by machine learning models. Classical approaches use bag-of-words or TF-IDF representations, while modern approaches use dense embeddings learned by neural models (word2vec, GloVe) or contextual embeddings produced by transformer encoders (BERT-style models), where the same word can have different vector representations depending on context.
+
+Tokenization is the process of splitting raw text into units a model can consume. Subword tokenization schemes such as Byte-Pair Encoding (BPE) and WordPiece strike a balance between vocabulary size and the ability to represent rare or out-of-vocabulary words by decomposing them into common subword units.
+
+Large Language Models (LLMs) are transformer-based models pretrained on massive text corpora using a self-supervised objective, typically next-token prediction. After pretraining, models are often adapted through supervised fine-tuning on instruction-response pairs and further aligned using techniques like Reinforcement Learning from Human Feedback (RLHF) to make their outputs more helpful and safe.
+
+Retrieval-Augmented Generation (RAG) addresses two key limitations of LLMs: their fixed knowledge cutoff and their tendency to hallucinate facts. Instead of relying purely on parametric knowledge, a RAG system retrieves relevant text chunks from an external knowledge base (using vector similarity search over embeddings) and injects that retrieved context into the model's prompt, grounding the generated output in retrievable, verifiable source material. Key design decisions in a RAG pipeline include the chunking strategy (chunk size and overlap), the embedding model, the choice of vector store (e.g., FAISS, Chroma, Pinecone), the similarity metric (cosine similarity, dot product), and how many chunks (top-k) to retrieve per query.
+
+Prompt engineering refers to the practice of crafting the input to an LLM to reliably elicit a desired output, including techniques such as few-shot examples, chain-of-thought prompting, and structured output constraints (e.g., asking for JSON). Evaluation of LLM-based systems is challenging because outputs are open-ended; common approaches include human evaluation, LLM-as-judge scoring, and task-specific automatic metrics.

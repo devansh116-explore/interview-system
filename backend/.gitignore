@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.env
+data/app.db
+data/uploads/
+data/vector_store/*.joblib
+data/vector_store/*.json

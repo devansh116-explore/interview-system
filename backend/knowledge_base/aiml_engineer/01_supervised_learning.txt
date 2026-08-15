@@ -1,0 +1,11 @@
+Supervised Learning Fundamentals
+
+Supervised learning is a branch of machine learning where a model learns a mapping from input features to known output labels using a labeled training dataset. The two broad categories are regression, where the target is continuous (e.g., predicting house prices), and classification, where the target is categorical (e.g., spam vs not spam).
+
+The learning process involves defining a hypothesis space, choosing a loss function that measures the discrepancy between predictions and true labels, and using an optimization algorithm such as gradient descent to minimize that loss over the training data. Common loss functions include mean squared error for regression and cross-entropy loss for classification.
+
+A central concern in supervised learning is the bias-variance tradeoff. High-bias models are too simple and underfit the data, failing to capture underlying patterns, while high-variance models are overly complex and overfit, memorizing noise in the training set rather than generalizing. Techniques such as regularization (L1/L2 penalties), cross-validation, early stopping, and ensembling are used to control this tradeoff.
+
+Common supervised algorithms include linear and logistic regression, decision trees, random forests, gradient boosted trees (XGBoost, LightGBM), support vector machines, and neural networks. Model selection typically depends on the size of the dataset, the interpretability requirements, the nature of the features (tabular, image, text), and computational constraints.
+
+Evaluation of supervised models depends on the task. For classification, accuracy, precision, recall, F1-score, and ROC-AUC are standard metrics, with the choice depending on class balance and the relative cost of false positives versus false negatives. For regression, RMSE, MAE, and R-squared are common. Proper train/validation/test splitting, or k-fold cross-validation, is essential to obtain an unbiased estimate of generalization performance.

@@ -1,0 +1,11 @@
+React Fundamentals and Component Architecture
+
+React organizes UIs as a tree of composable components, each managing its own local state and receiving data from parents via props. Components re-render when their state or props change, and React uses a virtual DOM diffing algorithm to compute the minimal set of real DOM updates needed, which is key to its performance.
+
+Hooks (useState, useEffect, useContext, useMemo, useCallback, useReducer) let function components manage state and side effects without needing class components. useEffect handles side effects (data fetching, subscriptions, timers) and takes a dependency array that controls when it re-runs; an empty array means "run once on mount," while omitting the array means "run on every render."
+
+State management approaches range from local component state, to lifting state up to a common ancestor, to React Context for state needed across many components without prop drilling, to external libraries (Redux, Zustand, Recoil) for complex, app-wide state with predictable update patterns.
+
+Controlled vs. uncontrolled components is a key distinction for forms: a controlled input's value is driven entirely by React state (onChange updates state, state drives the displayed value), giving full control and easy validation, whereas an uncontrolled input manages its own internal state and is accessed via a ref when needed.
+
+Performance optimization in React involves avoiding unnecessary re-renders (React.memo, useMemo, useCallback), code-splitting with lazy loading (React.lazy, Suspense) to reduce initial bundle size, and virtualization for long lists to avoid rendering thousands of offscreen DOM nodes at once.

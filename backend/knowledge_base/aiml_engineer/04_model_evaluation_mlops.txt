@@ -1,0 +1,11 @@
+Model Evaluation, Generalization, and MLOps
+
+Generalization is the ability of a model to perform well on unseen data, not just the data it was trained on. It is estimated by holding out a validation or test set, or through k-fold cross-validation, and should never be assessed on the training set alone, since that estimate is optimistically biased.
+
+Overfitting occurs when a model fits noise or idiosyncrasies of the training data rather than the true underlying signal, resulting in a large gap between training and validation performance. Underfitting occurs when a model is too simple to capture the signal at all, resulting in high error on both training and validation sets. Learning curves (error vs. training set size or vs. epochs) are a standard diagnostic tool for distinguishing between the two.
+
+Feature engineering, the process of transforming raw data into representations that better expose the underlying patterns to a model, remains important even in the deep learning era for tabular data problems. Common techniques include normalization/standardization, encoding categorical variables (one-hot, target encoding), handling missing values, and creating interaction or aggregate features.
+
+MLOps is the discipline of operationalizing machine learning systems: versioning data and models, building reproducible training pipelines, continuous integration/continuous deployment (CI/CD) for models, monitoring deployed models for data drift and performance degradation, and setting up feedback loops for retraining. A production ML system typically separates the training pipeline (offline, batch) from the serving/inference pipeline (online, low-latency), and exposes the model through an API that the rest of the application can call.
+
+Deploying an ML-powered feature inside a larger application, such as an AI interview system, typically requires careful separation between the orchestration layer (business logic, session state), the AI/ML layer (retrieval, generation, scoring), and the data layer (persistent storage of inputs/outputs), so that any single component (e.g., swapping an embedding model or an LLM provider) can be replaced without rewriting the rest of the system.

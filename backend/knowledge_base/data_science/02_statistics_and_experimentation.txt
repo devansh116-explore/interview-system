@@ -1,0 +1,11 @@
+Statistics and Experimentation for Data Science
+
+Hypothesis testing provides a formal framework for deciding whether an observed effect (e.g., a lift in conversion rate from an A/B test) is likely to be real or could plausibly be explained by random chance, using a null hypothesis, a test statistic, and a p-value threshold (commonly 0.05) to decide significance.
+
+A/B testing (randomized controlled experiments) is the gold standard for establishing causal impact of a product change, because random assignment to control and treatment groups breaks the link between the treatment and any confounding variables, which observational data alone cannot do.
+
+Confidence intervals communicate the uncertainty around an estimate (e.g., a 95% confidence interval for average revenue per user) and are often more informative for decision-making than a single point estimate or a binary "significant/not significant" verdict.
+
+Common statistical pitfalls include p-hacking (testing many hypotheses until one appears significant by chance), Simpson's paradox (a trend reversing when data is aggregated vs. segmented), and confusing correlation with causation, all of which a data scientist must guard against when communicating results to stakeholders.
+
+Sample size and statistical power determine whether an experiment is capable of detecting an effect of a given size; underpowered experiments risk concluding "no effect" when a real, smaller effect actually exists but wasn't detectable given the sample size.

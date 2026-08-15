@@ -1,0 +1,11 @@
+Python Web Frameworks: FastAPI and Flask
+
+FastAPI is a modern, high-performance Python web framework built on top of Starlette (ASGI) and Pydantic. It uses Python type hints to automatically validate request/response data, generate interactive OpenAPI/Swagger documentation, and provide editor autocompletion, which reduces boilerplate compared to manually validating input.
+
+FastAPI's dependency injection system (using Depends) allows shared logic, such as database session creation, authentication checks, or pagination parameters, to be defined once and reused across multiple route handlers, improving testability and reducing duplication.
+
+Flask is a lightweight, unopinionated microframework that gives the developer more control over structure at the cost of having to make more decisions manually (routing, request parsing, validation typically require additional libraries like Flask-RESTful or Marshmallow). Flask is well suited to smaller services or when fine-grained control over the request lifecycle is needed.
+
+Both frameworks support middleware for cross-cutting concerns such as CORS handling, request logging, and centralized error handling. For an AI-powered application that needs to call out to potentially slow model inference or retrieval steps, FastAPI's native async/await support is particularly valuable, since it allows the server to handle other requests while waiting on I/O-bound operations like a vector database query or an external model API call.
+
+Structuring a FastAPI application typically involves separating routers (one per resource or feature area, e.g., resume, interview, knowledge_base), Pydantic schemas (request/response models), SQLAlchemy models (database tables), and service modules (business logic), which keeps route handlers thin and delegates actual work to testable service functions.

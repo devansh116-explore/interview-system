@@ -1,0 +1,13 @@
+Neural Networks and Deep Learning
+
+A neural network is composed of layers of interconnected units (neurons), each applying a weighted sum of its inputs followed by a nonlinear activation function such as ReLU, sigmoid, or tanh. Stacking multiple layers allows the network to learn increasingly abstract representations of the input, which is the core idea behind deep learning.
+
+Training a neural network relies on backpropagation, which computes the gradient of the loss function with respect to every weight in the network by applying the chain rule layer by layer, and an optimizer such as SGD, Adam, or RMSprop then uses these gradients to update the weights. Key hyperparameters include the learning rate, batch size, number of layers/units, and regularization strength (dropout, weight decay).
+
+Convolutional Neural Networks (CNNs) are specialized for grid-like data such as images. They use convolutional filters to detect local spatial patterns (edges, textures, shapes) and pooling layers to reduce dimensionality while preserving important features, making them parameter-efficient and translation-invariant.
+
+Recurrent Neural Networks (RNNs), and their gated variants LSTM and GRU, are designed for sequential data by maintaining a hidden state that is updated at each time step. They historically powered NLP and time-series tasks but have been largely superseded by attention-based architectures for many applications.
+
+The Transformer architecture replaced recurrence with self-attention, allowing every position in a sequence to directly attend to every other position, which enables much better parallelization and long-range dependency modeling. Transformers are the foundation of modern large language models and are pretrained on massive corpora before being fine-tuned or prompted for downstream tasks.
+
+Common failure modes in deep learning include vanishing/exploding gradients (mitigated by normalization layers and residual connections), overfitting on small datasets (mitigated by data augmentation, dropout, and transfer learning), and poor convergence due to a badly chosen learning rate or initialization scheme.

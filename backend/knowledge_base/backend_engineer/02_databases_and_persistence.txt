@@ -1,0 +1,11 @@
+Databases and Data Persistence
+
+Relational databases (PostgreSQL, MySQL) enforce a fixed schema and support ACID transactions (Atomicity, Consistency, Isolation, Durability), making them a strong default for systems where data integrity and relationships between entities matter, such as an interview platform tracking candidates, sessions, questions, and answers.
+
+Normalization organizes relational data to reduce redundancy: for example, storing a candidate once and referencing it by foreign key from multiple interview sessions, rather than duplicating candidate details in every session row. Denormalization (intentionally duplicating data) is sometimes used to optimize read-heavy workloads at the cost of write complexity and potential inconsistency.
+
+Indexes speed up lookups on specific columns (e.g., an index on session_id) at the cost of slower writes and additional storage; choosing which columns to index requires understanding the system's actual query patterns rather than indexing everything by default.
+
+NoSQL databases (MongoDB, DynamoDB) trade strict schema and strong consistency for flexibility and horizontal scalability, and are often a good fit for semi-structured or rapidly evolving data, such as raw AI-generated content or logs, while vector databases (FAISS, Chroma, Pinecone, Weaviate) are purpose-built for storing embeddings and performing approximate nearest-neighbor similarity search, which is essential infrastructure for a Retrieval-Augmented Generation pipeline.
+
+An Object-Relational Mapper (ORM) such as SQLAlchemy (Python) lets application code interact with the database using classes and objects rather than raw SQL, improving maintainability, though understanding the underlying SQL and query performance remains important to avoid issues such as the N+1 query problem.

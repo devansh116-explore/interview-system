@@ -1,0 +1,11 @@
+API Design and REST Principles
+
+A well-designed API exposes resources, not implementation details. RESTful APIs organize functionality around nouns (resources) such as /users or /orders, and use HTTP verbs (GET, POST, PUT, PATCH, DELETE) to express actions on those resources, relying on status codes (200, 201, 400, 401, 403, 404, 409, 422, 500) to communicate the outcome unambiguously to the client.
+
+Idempotency is a key property for reliable APIs: GET, PUT, and DELETE should be idempotent, meaning repeating the same request multiple times has the same effect as doing it once, which matters for retry logic in distributed systems. POST is typically not idempotent, since it usually creates a new resource each time.
+
+Versioning strategies (URL path versioning like /v1/, header-based versioning, or content negotiation) allow an API to evolve without breaking existing clients. Pagination (offset-based or cursor-based), filtering, and sorting conventions should be consistent across endpoints to keep the API predictable.
+
+Authentication and authorization are distinct concerns: authentication verifies who the caller is (e.g., via JWT tokens, OAuth2, API keys), while authorization determines what that caller is allowed to do (role-based access control, scopes, permissions). Stateless authentication (e.g., signed JWTs validated on each request) scales more easily than server-side session storage in distributed backend deployments.
+
+Input validation and structured error responses are essential for a robust API. Validation should happen at the boundary (request schema validation) before business logic executes, and error responses should include a consistent shape (error code, human-readable message, and optionally field-level detail) so clients can handle failures programmatically.

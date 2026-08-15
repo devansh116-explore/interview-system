@@ -1,0 +1,11 @@
+Frontend State Management and API Integration
+
+A frontend interacting with a backend API needs a clear strategy for managing server state (data owned by the backend, e.g., interview questions and session status) separately from client/UI state (data owned by the browser, e.g., which form field is focused). Libraries like React Query or SWR handle caching, refetching, and loading/error states for server state, reducing manual useEffect/useState boilerplate.
+
+Multi-step flows, such as a resume upload → role selection → interview → summary flow, are typically modeled either as a single state machine (explicit states and allowed transitions, often implemented with useReducer or a library like XState) or as route-based steps (each stage is its own page/route), both of which keep the UI's current stage explicit and prevent invalid transitions.
+
+Handling asynchronous operations (file uploads, API calls to generate questions) requires surfacing loading, success, and error states distinctly in the UI, so the user always understands what the system is doing, especially when a step (like AI question generation) may take a few seconds.
+
+Form handling for structured input (resume upload with a file input, role selection with a dropdown) benefits from validation before submission (file type/size checks) and clear, specific error messaging tied to the exact field or step that failed, rather than a single generic "something went wrong."
+
+A clean separation between an API client module (functions that wrap fetch/axios calls to the backend, handling base URLs, headers, and error normalization) and UI components keeps components focused on rendering and makes the API layer easy to swap or mock in tests.

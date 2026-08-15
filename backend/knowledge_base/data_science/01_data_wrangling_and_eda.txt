@@ -1,0 +1,11 @@
+Data Wrangling and Exploratory Data Analysis
+
+Exploratory Data Analysis (EDA) is the process of summarizing and visualizing a dataset's main characteristics before modeling: checking distributions, missing values, outliers, correlations between features, and class balance. Tools like pandas profiling, histograms, box plots, and correlation heatmaps are standard first steps in any data science workflow.
+
+Handling missing data requires understanding why it's missing: missing completely at random, missing at random, or missing not at random each call for different strategies, ranging from simple mean/median imputation, to model-based imputation, to explicitly encoding "missingness" as a feature when it is itself informative.
+
+Outlier detection and treatment depends on domain context; statistical methods (z-score, IQR-based bounds) or model-based methods (isolation forest, local outlier factor) can flag anomalies, but a data scientist must decide whether outliers represent errors to remove, or genuine rare events to keep or study separately.
+
+Feature scaling (standardization, min-max normalization) matters for distance-based or gradient-based algorithms (KNN, SVM, neural networks, gradient descent-based linear models) but is largely irrelevant for tree-based models, which split on thresholds rather than distances.
+
+Data leakage, where information from outside the training set (often inadvertently from the future or from the target) leaks into the features, is one of the most common and dangerous mistakes in applied ML, since it produces models that look excellent in validation but fail in production; careful pipeline design (fitting scalers/encoders only on training folds) is the main defense.
