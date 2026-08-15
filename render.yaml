@@ -15,7 +15,6 @@ services:
   - type: web
     name: aptitude-frontend
     env: static
-    region: ohio
     plan: free
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: frontend/dist
