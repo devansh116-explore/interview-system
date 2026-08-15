@@ -35,7 +35,7 @@ Fill in these fields:
 |-------|-------|
 | **Name** | `aptitude-backend` |
 | **Environment** | `Python` |
-| **Build Command** | `pip install -r backend/requirements.txt` |
+| **Build Command** | `pip install -r requirements.txt` |
 | **Start Command** | `uvicorn backend.app.main:app --host 0.0.0.0 --port 8000` |
 | **Plan** | `Free` |
 | **Region** | `Ohio` (or your choice) |
