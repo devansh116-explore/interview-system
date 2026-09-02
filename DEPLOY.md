@@ -51,6 +51,7 @@ If you have a `render.yaml` file in your repo root, Render will auto-detect it:
    - **Root Directory**: `backend`
    - **Build Command**: `pip install -r requirements.txt`
    - **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+   - **Python Version**: `3.11.11` (also defined in `.python-version`)
 4. Add Environment Variables:
    - `PYTHONUNBUFFERED` = `true`
    - `FRONTEND_ORIGIN` = `https://aptitude-frontend.onrender.com`
