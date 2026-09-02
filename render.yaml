@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: aptitude-backend
+    name: aptitude-backend-1
     runtime: python
     plan: free
     rootDir: backend
@@ -13,12 +13,12 @@ services:
       - key: PYTHONUNBUFFERED
         value: "true"
       - key: FRONTEND_ORIGIN
-        value: https://aptitude-frontend.onrender.com
+        value: https://aptitude-frontend-1.onrender.com
       - key: DATABASE_URL
         sync: false
 
   - type: web
-    name: aptitude-frontend
+    name: aptitude-frontend-1
     runtime: static
     rootDir: frontend
     buildCommand: npm ci && npm run build
@@ -27,7 +27,7 @@ services:
       - key: NODE_VERSION
         value: 20.18.0
       - key: VITE_API_BASE_URL
-        value: https://aptitude-backend.onrender.com
+        value: https://aptitude-backend-1.onrender.com
     routes:
       - type: rewrite
         source: /*

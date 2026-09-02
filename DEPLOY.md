@@ -46,7 +46,7 @@ If you have a `render.yaml` file in your repo root, Render will auto-detect it:
 1. Click **New +** → **Web Service**
 2. Connect your GitHub repo
 3. Set:
-   - **Name**: `aptitude-backend`
+   - **Name**: `aptitude-backend-1`
    - **Environment**: Python
    - **Root Directory**: `backend`
    - **Build Command**: `pip install -r requirements.txt`
@@ -54,7 +54,7 @@ If you have a `render.yaml` file in your repo root, Render will auto-detect it:
    - **Python Version**: `3.11.11` (also defined in `.python-version`)
 4. Add Environment Variables:
    - `PYTHONUNBUFFERED` = `true`
-   - `FRONTEND_ORIGIN` = `https://aptitude-frontend.onrender.com`
+   - `FRONTEND_ORIGIN` = `https://aptitude-frontend-1.onrender.com`
 5. Click **Create Web Service**
 
 ### Frontend Service
@@ -62,13 +62,13 @@ If you have a `render.yaml` file in your repo root, Render will auto-detect it:
 1. Click **New +** → **Static Site**
 2. Connect the same GitHub repo
 3. Set:
-   - **Name**: `aptitude-frontend`
+   - **Name**: `aptitude-frontend-1`
    - **Root Directory**: `frontend`
    - **Build Command**: `npm ci && npm run build`
    - **Publish directory**: `dist`
    - **Node Version**: `20.18.0` (also defined in `frontend/.node-version`)
 4. Add Environment Variables:
-   - `VITE_API_BASE_URL` = `https://aptitude-backend.onrender.com`
+   - `VITE_API_BASE_URL` = `https://aptitude-backend-1.onrender.com`
 5. Click **Create Static Site**
 
 ---
@@ -81,16 +81,16 @@ If you have a `render.yaml` file in your repo root, Render will auto-detect it:
 - `DATABASE_URL` = Auto-set if using Render Postgres (optional)
 
 ### Frontend
-- `VITE_API_BASE_URL` = Your backend URL (e.g., `https://aptitude-backend.onrender.com`)
+- `VITE_API_BASE_URL` = `https://aptitude-backend-1.onrender.com`
 
 ---
 
 ## Verify Deployment
 
-1. **Backend URL**: `https://aptitude-backend.onrender.com/api/roles`
+1. **Backend URL**: `https://aptitude-backend-1.onrender.com/api/roles`
    - Should return list of 4 roles (AI/ML, Backend, Data Science, Frontend)
 
-2. **Frontend URL**: `https://aptitude-frontend.onrender.com`
+2. **Frontend URL**: `https://aptitude-frontend-1.onrender.com`
    - Should show the Aptitude logo and resume upload screen
 
 3. **CORS Check**: Upload a resume in the frontend

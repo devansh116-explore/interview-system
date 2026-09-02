@@ -33,7 +33,7 @@ Fill in these fields:
 
 | Field | Value |
 |-------|-------|
-| **Name** | `aptitude-backend` |
+| **Name** | `aptitude-backend-1` |
 | **Environment** | `Python` |
 | **Root Directory** | `backend` |
 | **Build Command** | `pip install -r requirements.txt` |
@@ -47,7 +47,7 @@ Click **Advanced** → **Add Environment Variable**
 Add these:
 ```
 PYTHONUNBUFFERED = true
-FRONTEND_ORIGIN = https://aptitude-frontend.onrender.com
+FRONTEND_ORIGIN = https://aptitude-frontend-1.onrender.com
 ```
 
 (We'll update the frontend URL after we know it)
@@ -81,7 +81,7 @@ Fill in these fields:
 
 | Field | Value |
 |-------|-------|
-| **Name** | `aptitude-frontend` |
+| **Name** | `aptitude-frontend-1` |
 | **Root Directory** | `frontend` |
 | **Build Command** | `npm ci && npm run build` |
 | **Publish Directory** | `dist` |
@@ -96,7 +96,7 @@ Click **Advanced** → **Add Environment Variable**
 
 Add this:
 ```
-VITE_API_BASE_URL = https://aptitude-backend-xxxx.onrender.com
+VITE_API_BASE_URL = https://aptitude-backend-1.onrender.com
 ```
 (Replace `xxxx` with actual backend service name from Step 3)
 
@@ -116,7 +116,7 @@ After frontend build completes, you'll have a URL like:
 `https://aptitude-frontend-yyyy.onrender.com`
 
 ### 5.2 Update Backend Environment Variable
-1. Go to Backend Service (`aptitude-backend`)
+1. Go to Backend Service (`aptitude-backend-1`)
 2. Click **Settings** (left sidebar)
 3. Find `FRONTEND_ORIGIN`
 4. Change value to your frontend URL
@@ -210,8 +210,8 @@ After deployment, you can always check status:
 
 | Service | Dashboard Link |
 |---------|---|
-| Backend | `render.com/dashboard` → `aptitude-backend` → Logs |
-| Frontend | `render.com/dashboard` → `aptitude-frontend` → Logs |
+| Backend | `render.com/dashboard` → `aptitude-backend-1` → Logs |
+| Frontend | `render.com/dashboard` → `aptitude-frontend-1` → Logs |
 
 ---
 
