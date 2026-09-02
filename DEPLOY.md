@@ -63,8 +63,10 @@ If you have a `render.yaml` file in your repo root, Render will auto-detect it:
 2. Connect the same GitHub repo
 3. Set:
    - **Name**: `aptitude-frontend`
-   - **Build Command**: `cd frontend && npm install && npm run build`
-   - **Publish directory**: `frontend/dist`
+   - **Root Directory**: `frontend`
+   - **Build Command**: `npm ci && npm run build`
+   - **Publish directory**: `dist`
+   - **Node Version**: `20.18.0` (also defined in `frontend/.node-version`)
 4. Add Environment Variables:
    - `VITE_API_BASE_URL` = `https://aptitude-backend.onrender.com`
 5. Click **Create Static Site**

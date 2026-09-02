@@ -82,8 +82,10 @@ Fill in these fields:
 | Field | Value |
 |-------|-------|
 | **Name** | `aptitude-frontend` |
-| **Build Command** | `cd frontend && npm install && npm run build` |
-| **Publish Directory** | `frontend/dist` |
+| **Root Directory** | `frontend` |
+| **Build Command** | `npm ci && npm run build` |
+| **Publish Directory** | `dist` |
+| **Node Version** | `20.18.0` (also defined in `frontend/.node-version`) |
 | **Plan** | `Free` |
 | **Region** | `Ohio` |
 

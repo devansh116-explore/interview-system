@@ -17,11 +17,15 @@ services:
       - key: DATABASE_URL
         sync: false
 
-  - type: static
+  - type: web
     name: aptitude-frontend
-    buildCommand: cd frontend && npm install && npm run build
-    staticPublishPath: frontend/dist
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
     envVars:
+      - key: NODE_VERSION
+        value: 20.18.0
       - key: VITE_API_BASE_URL
         value: https://aptitude-backend.onrender.com
     routes:
