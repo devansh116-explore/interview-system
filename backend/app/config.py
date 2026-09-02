@@ -45,6 +45,12 @@ class Settings(BaseSettings):
 
 settings = Settings()
 
+if settings.database_url.startswith("postgres://"):
+    settings.database_url = settings.database_url.replace("postgres://", "postgresql+psycopg2://", 1)
+if settings.database_url.startswith("sqlite:///./"):
+    sqlite_path = settings.base_dir / settings.database_url.removeprefix("sqlite:///./")
+    settings.database_url = f"sqlite:///{sqlite_path.as_posix()}"
+
 # Ensure runtime directories exist
 Path(settings.base_dir / "data").mkdir(parents=True, exist_ok=True)
 Path(settings.base_dir / settings.vector_store_dir.lstrip("./")).mkdir(parents=True, exist_ok=True)

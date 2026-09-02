@@ -36,6 +36,8 @@ async def upload_resume(file: UploadFile = File(...), db: DBSession = Depends(ge
         parsed = parse_resume(temp_path)
     except Exception as exc:
         raise HTTPException(status_code=422, detail=f"Could not parse resume: {exc}") from exc
+    finally:
+        temp_path.unlink(missing_ok=True)
 
     if not parsed.raw_text.strip():
         raise HTTPException(status_code=422, detail="No extractable text found in the uploaded file.")

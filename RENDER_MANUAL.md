@@ -35,8 +35,9 @@ Fill in these fields:
 |-------|-------|
 | **Name** | `aptitude-backend` |
 | **Environment** | `Python` |
+| **Root Directory** | `backend` |
 | **Build Command** | `pip install -r requirements.txt` |
-| **Start Command** | `uvicorn backend.app.main:app --host 0.0.0.0 --port 8000` |
+| **Start Command** | `uvicorn app.main:app --host 0.0.0.0 --port $PORT` |
 | **Plan** | `Free` |
 | **Region** | `Ohio` (or your choice) |
 
@@ -69,9 +70,9 @@ Click **Create Web Service**
 
 ## Step 4: Create Frontend Service on Render
 
-### 4.1 Create New Web Service
-1. Click **New +** → **Web Service**
-2. Select your repo again
+### 4.1 Create Static Site
+1. Click **New +** → **Static Site**
+2. Select **Static Site** and choose your repo again
 3. Click **Connect**
 
 ### 4.2 Configure Frontend
@@ -81,16 +82,12 @@ Fill in these fields:
 | Field | Value |
 |-------|-------|
 | **Name** | `aptitude-frontend` |
-| **Environment** | `Node` |
 | **Build Command** | `cd frontend && npm install && npm run build` |
-| **Start Command** | `npm run preview` (or leave empty for static) |
+| **Publish Directory** | `frontend/dist` |
 | **Plan** | `Free` |
 | **Region** | `Ohio` |
 
-**Note:** For static site, you can alternatively:
-- Set Build Command: `cd frontend && npm install && npm run build`
-- Set Publish Directory: `frontend/dist`
-- Leave Start Command empty
+Configure the SPA rewrite from `/*` to `/index.html` so client-side routes resolve correctly.
 
 ### 4.3 Add Environment Variables
 Click **Advanced** → **Add Environment Variable**
@@ -158,7 +155,7 @@ Should show Aptitude logo and "Start with your resume" ✅
 3. Look for red error text
 
 **Common fixes:**
-- Add to repo root: `runtime.txt` with `python-3.11.0`
+- Ensure `backend/runtime.txt` contains `python-3.11.0`
 - Verify `backend/requirements.txt` is valid
 - Check Python imports are correct
 

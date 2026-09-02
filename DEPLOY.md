@@ -48,8 +48,9 @@ If you have a `render.yaml` file in your repo root, Render will auto-detect it:
 3. Set:
    - **Name**: `aptitude-backend`
    - **Environment**: Python
-   - **Build Command**: `pip install -r backend/requirements.txt`
-   - **Start Command**: `uvicorn backend.app.main:app --host 0.0.0.0 --port 8000`
+   - **Root Directory**: `backend`
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
 4. Add Environment Variables:
    - `PYTHONUNBUFFERED` = `true`
    - `FRONTEND_ORIGIN` = `https://aptitude-frontend.onrender.com`
@@ -125,10 +126,11 @@ If you want persistent data across restarts, migrate to Render Postgres:
 |---------|------|------|
 | Backend (FastAPI) | Free | $0 (free tier) / $7/month (paid) |
 | Frontend (Static) | Free | $0 (included) |
-| Database (SQLite) | Free | $0 (on disk) |
+| Database (SQLite) | Demo only | $0 (ephemeral disk) |
 | **Total** | - | **$0/month** (free tier) |
 
 Free tier sleeps after 15 minutes of inactivity. Upgrade to paid for always-on.
+For persistent candidates and interview sessions, attach Render Postgres and set `DATABASE_URL`.
 
 ---
 

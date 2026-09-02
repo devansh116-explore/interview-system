@@ -1,7 +1,7 @@
 """Pydantic request/response models (the API's public contract)."""
 from typing import List, Optional
 from datetime import datetime
-from pydantic import BaseModel
+from pydantic import BaseModel, Field, field_validator
 
 
 class ResumeUploadResponse(BaseModel):
@@ -40,7 +40,14 @@ class QuestionOut(BaseModel):
 
 class SubmitAnswerRequest(BaseModel):
     session_id: str
-    answer_text: str
+    answer_text: str = Field(min_length=1)
+
+    @field_validator("answer_text")
+    @classmethod
+    def validate_answer_text(cls, value: str) -> str:
+        if not value.strip():
+            raise ValueError("Answer must contain non-whitespace text.")
+        return value
 
 
 class QAItemOut(BaseModel):
