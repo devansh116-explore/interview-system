@@ -32,7 +32,11 @@ class Settings(BaseSettings):
     @property
     def frontend_origins(self) -> list[str]:
         origins = [origin.strip() for origin in self.frontend_origin.split(",") if origin.strip()]
-        defaults = ["http://localhost:5173", "http://127.0.0.1:5173"]
+        defaults = [
+            "http://localhost:5173",
+            "http://127.0.0.1:5173",
+            "https://aptitude-frontend-1.onrender.com",
+        ]
         for origin in defaults:
             if origin not in origins:
                 origins.append(origin)

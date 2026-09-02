@@ -54,7 +54,7 @@ If you have a `render.yaml` file in your repo root, Render will auto-detect it:
    - **Python Version**: `3.11.11` (also defined in `.python-version`)
 4. Add Environment Variables:
    - `PYTHONUNBUFFERED` = `true`
-   - `FRONTEND_ORIGIN` = `https://aptitude-frontend-1.onrender.com`
+   - `FRONTEND_ORIGIN` = `https://aptitude-frontend-1.onrender.com` (the app also includes this deployed origin by default)
 5. Click **Create Web Service**
 
 ### Frontend Service
