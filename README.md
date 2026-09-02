@@ -70,6 +70,13 @@ npm run dev
 
 App: `http://localhost:5173`
 
+### Live Deployment
+
+- Frontend: https://aptitude-frontend-1.onrender.com
+- Backend: https://aptitude-backend-1.onrender.com
+- API health: https://aptitude-backend-1.onrender.com/api/health
+- API docs: https://aptitude-backend-1.onrender.com/docs
+
 Both `.env.example` files list every configurable value with inline comments.
 
 ---
